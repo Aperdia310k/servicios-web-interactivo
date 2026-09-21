@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría Interactiva: APIs y Servicios Web</title>
+    <link rel="stylesheet" href="servicios-web.css">
+</head>
+<body>
+    <header>
+        <h1>Servicios Web y Formatos de Datos</h1>
+        <p>Aprende conceptos fundamentales de GET, POST, XML y JSON de forma interactiva.</p>
+    </header>
+
+    <main class="container">
+        <!-- Navegación por Pestañas -->
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showSection('teoria')">📚 Teoría</button>
+            <button class="tab-btn" onclick="showSection('simulador')">⚡ Simulador HTTP</button>
+            <button class="tab-btn" onclick="showSection('quiz')">🧪 Cuestionario</button>
+        </nav>
+
+        <!-- Sección 1: Teoría -->
+        <section id="teoria" class="content-section active">
+            <h2>Conceptos Clave</h2>
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>Petición GET</h3>
+                    <p>Se utiliza para <strong>recuperar o consultar</strong> información del servidor. No debe modificar datos.</p>
+                    <span class="tag get">Lectura</span>
+                </article>
+                <article class="card">
+                    <h3>Petición POST</h3>
+                    <p>Se utiliza para <strong>enviar o crear</strong> nuevos datos en el servidor (formularios, nuevos registros).</p>
+                    <span class="tag post">Escritura</span>
+                </article>
+                <article class="card">
+                    <h3>Formato XML</h3>
+                    <p>Lenguaje de etiquetas estructurado. Muy utilizado en sistemas heredados, SOAP y configuraciones estrictas.</p>
+                    <span class="tag xml">Estructurado</span>
+                </article>
+                <article class="card">
+                    <h3>Formato JSON</h3>
+                    <p>Formato ligero basado en objetos JavaScript. Es el estándar actual en APIs REST debido a su simplicidad.</p>
+                    <span class="tag json">Ligero</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección 2: Simulador Interactivo -->
+        <section id="simulador" class="content-section">
+            <h2>Simulador de Petición HTTP</h2>
+            <p>Selecciona un método y formato para ver la estructura de la petición y respuesta simulada:</p>
+            
+            <div class="controls">
+                <label>Método:
+                    <select id="sim-method" onchange="updateSimulation()">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                    </select>
+                </label>
+                <label>Formato:
+                    <select id="sim-format" onchange="updateSimulation()">
+                        <option value="XML">XML</option>
+                        <option value="JSON">JSON</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="console">
+                <div class="code-box">
+                    <h4>Petición enviada (Request)</h4>
+                    <pre id="request-code"></pre>
+                </div>
+                <div class="code-box">
+                    <h4>Respuesta recibida (Response 200 OK)</h4>
+                    <pre id="response-code"></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Quiz -->
+        <section id="quiz" class="content-section">
+            <h2>Comprueba tus conocimientos</h2>
+            <div id="quiz-container">
+                <p id="question-text">Cargando pregunta...</p>
+                <div id="options-container" class="options"></div>
+                <div id="feedback" class="feedback"></div>
+                <button id="next-btn" onclick="nextQuestion()" style="display: none;">Siguiente Pregunta</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
